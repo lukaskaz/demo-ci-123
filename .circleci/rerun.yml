@@ -1,0 +1,10 @@
+name: Re-Run Tests on PR Comment Workflow
+on:
+  issue_comment:
+    types: [created]
+  
+jobs:
+  rerun-tests-job:
+    if: github.event.issue.pull_request && contains(github.event.comment.body, 'rebuild')
+    uses: ./.circleci/config.yml
+
