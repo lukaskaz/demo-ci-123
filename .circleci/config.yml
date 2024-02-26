@@ -34,9 +34,11 @@ jobs:
           name: deploy
           command: '#e.g. ./deploy.sh'
 workflows:
-  test_test:
+  testing:
     jobs:
       - test
+  deploying:
+    jobs:
       - build:
           requires:
             - test
