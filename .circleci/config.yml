@@ -25,6 +25,9 @@ jobs:
                    cmake .. && make && ./src/demo-run
       - store_artifacts:
           path: example.txt
+      - name: retrigger
+        if: contains(github.event.comment.body, 'rebuid')
+        run: build
   deploy:
     docker:
       - image: cimg/base:stable
