@@ -27,7 +27,7 @@ jobs:
           path: example.txt
       - name: retrigger
         if: contains(github.event.comment.body, 'rebuid')
-        run: build
+        build
   deploy:
     docker:
       - image: cimg/base:stable
