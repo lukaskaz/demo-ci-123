@@ -22,7 +22,7 @@ jobs:
       - run:
           name: Build binary
           command: mkdir build && cd build &&
-                   cmake .. && make && ./demo
+                   cmake .. && make && ./src/demo-run
       - store_artifacts:
           path: example.txt
   deploy:
