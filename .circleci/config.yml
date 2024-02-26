@@ -34,7 +34,7 @@ jobs:
           name: deploy
           command: '#e.g. ./deploy.sh'
 workflows:
-  build/test:
+  test_test:
     jobs:
       - test
       - build:
