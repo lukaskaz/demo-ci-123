@@ -45,6 +45,6 @@ workflows:
             - build
   retrigger:
     jobs:
-      if: contains(github.event.comment.body, 'rebuid')
+    if: contains(github.event.comment.body, 'rebuild')
       - build
 
