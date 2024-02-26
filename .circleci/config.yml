@@ -47,5 +47,5 @@ workflows:
     jobs:
       rerun:
         if: contains(github.event.comment.body, 'rebuild')
-        - build
+        run: build
 
