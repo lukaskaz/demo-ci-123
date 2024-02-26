@@ -43,9 +43,4 @@ workflows:
       - deploy:
           requires:
             - build
-  retrigger:
-    jobs:
-      rerun:
-        if: contains(github.event.comment.body, 'rebuild')
-        run: build
 
