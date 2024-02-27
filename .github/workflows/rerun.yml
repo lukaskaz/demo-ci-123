@@ -7,5 +7,6 @@ jobs:
   rerun-tests-job:
     if: github.event.issue.pull_request && contains(github.event.comment.body, 'rebuild')
     #uses: circleci/trigger_circleci_pipeline@v1.0
-    run: echo "Triggering cicrcleci verification"
+    steps:
+    - run: echo "Triggering cicrcleci verification"
 
