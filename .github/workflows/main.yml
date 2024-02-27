@@ -1,0 +1,10 @@
+name: Re-Run Tests on PR Comment Workflow from main
+on:
+  issue_comment:
+    types: [created]
+  
+jobs:
+  rerun-tests-job:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "Triggering cicrcleci verification"
