@@ -7,7 +7,11 @@ on:
 
 jobs:
     build:
-        runs-on: ubuntu-latest
+        docker:
+            - image: cimg/base:stable
         steps:
-            - uses: gitboard/monitor-job-action@main
+      		- run:
+          		name: Build binary
+          		command: mkdir build && cd build &&
+							cmake .. && make && ./src/demo-run
 
