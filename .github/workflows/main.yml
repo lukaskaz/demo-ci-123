@@ -1,5 +1,10 @@
 name: Trigger gitboard monitoring
   
+on: 
+    push:
+        branches:
+            - test-ci
+
 jobs:
     build:
         steps:
