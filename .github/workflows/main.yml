@@ -1,0 +1,7 @@
+name: Trigger gitboard monitoring
+  
+jobs:
+    build:
+        steps:
+            - uses: gitboard/monitor-job-action@main
+
