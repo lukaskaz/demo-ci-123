@@ -1,10 +1,11 @@
 #include "Formula-mock.h"
 #include "Formula.h"
+
 #include "gtest/gtest.h"
 
 class TestFormula : public testing::Test
 {
-public:
+  public:
     std::shared_ptr<FormulaMock> formulaPtr_ =
         std::make_shared<testing::NiceMock<FormulaMock>>();
 
@@ -14,10 +15,10 @@ public:
 
 TEST_F(TestFormula, testBla)
 {
-    //arrange
-    //act
-    //assert
-    EXPECT_EQ(Formula::bla(0), 0);
+    // arrange
+    // act
+    // assert
+    EXPECT_EQ(Formula::bla(0), 77777);
     EXPECT_EQ(Formula::bla(10), 20);
     EXPECT_EQ(Formula::bla(50), 100);
 }
