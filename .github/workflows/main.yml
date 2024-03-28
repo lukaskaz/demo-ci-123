@@ -7,12 +7,12 @@ on:
 
 jobs:
     build:
-        docker:
-            - image: cimg/base:stable
+    	name: build
+        runs-on: ubuntu-latest
+	environment: production
         steps:
-            - checkout
-      		- run:
-          		name: Build binary
-          		command: mkdir build && cd build &&
-							cmake .. && make && ./src/demo-run
-
+        - name: Checkout
+	  uses: actions/checkout@v3
+   	- name: Building
+    	  run: |
+       	    mkdir build && cd build && cmake .. && make && ./src/demo-run
