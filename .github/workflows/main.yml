@@ -16,5 +16,5 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
     - name: Building
-    	run: mkdir build && cd build && cmake .. && make && ./src/demo-run
+      run: mkdir build && cd build && cmake .. && make && ./src/demo-run
       
