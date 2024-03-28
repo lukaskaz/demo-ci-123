@@ -1,18 +1,31 @@
-name: Re-Run Tests on PR Comment Workflow from main
+name: Trigger gitboard monitoring
+
 on:
-  issue_comment:
-    types: [created]
-  
+  push:
+    branches: [ test-ci ]
+  pull_request:
+    branches: [ test-ci ]
+
 jobs:
-  rerun-tests-job:
-    if: github.event.issue.pull_request && contains(github.event.comment.body, 'retest')
+  test:
+    name: Test
     runs-on: ubuntu-latest
+    environment: test
+
     steps:
-    - run: echo "Triggering cicrcleci retest"
-  trigger-circleci:
+    - name: Checking out
+      uses: actions/checkout@v4
+    - name: Testing
+      run: cd tst && mkdir build && cd build && cmake .. && make && ./demo-ut
+
+  build:
+    name: Build
     runs-on: ubuntu-latest
+    environment: production
+
     steps:
-      - name: Retrigger circleci checks
-        uses: CircleCI-Public/trigger-circleci-pipeline-action@v1.0.6
-        env:
-          CCI_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Checking out
+      uses: actions/checkout@v4
+    - name: Building
+      run: mkdir build && cd build && cmake .. && make && ./src/demo-run
+      
