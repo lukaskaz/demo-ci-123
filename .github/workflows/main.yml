@@ -7,13 +7,24 @@ on:
     branches: [ test-ci ]
 
 jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    environment: test
+
+    steps:
+    - name: Checking out
+      uses: actions/checkout@v4
+    - name: Testing
+      run: cd tst && mkdir build && cd build && cmake .. && make && ./demo-ut
+
   build:
     name: Build
     runs-on: ubuntu-latest
     environment: production
 
     steps:
-    - name: Checkout
+    - name: Checking out
       uses: actions/checkout@v4
     - name: Building
       run: mkdir build && cd build && cmake .. && make && ./src/demo-run
